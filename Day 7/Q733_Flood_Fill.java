@@ -8,7 +8,7 @@
 
 class Q733_Flood_Fill 
 {
-  public void dfs(int image[][],int sr,int sc,int newColor,int rows,int columns, int source)
+  	public void dfs(int image[][],int sr,int sc,int newColor,int rows,int columns, int source)
 	{
 		// Checking the boundary cases
 		if(sr<0 || sr>= rows || sc<0 || sc>= columns)
