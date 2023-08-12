@@ -6,40 +6,40 @@
  * Space Complexity : O(N)
  */
 
-class Q150_Evaluate_Reverse_Polish_Notation 
+class Solution 
 {
     public int evalRPN(String[] tokens) 
     {
-		Stack<String> stack = new Stack<String>();
+	Stack<String> stack = new Stack<String>();
 	
-		for(String s : tokens)
+	for(String s : tokens)
+	{
+		if(isOperand(s))
 		{
-			if(isOperand(s))
-			{
-				int b = Integer.parseInt(stack.pop());
-				int a = Integer.parseInt(stack.pop());
+			int b = Integer.parseInt(stack.pop());
+			int a = Integer.parseInt(stack.pop());
 				
-				int c = 0;
+			int c = 0;
 				
-				if(s.equals("+"))
-					c = a+b;
-				else if(s.equals("-"))
-					c = a-b;
-				else if(s.equals("*"))
-					c = a*b;
-				if(s.equals("/"))
-					c = a/b;
+			if(s.equals("+"))
+				c = a+b;
+			else if(s.equals("-"))
+				c = a-b;
+			else if(s.equals("*"))
+				c = a*b;
+			if(s.equals("/"))
+				c = a/b;
 				
-				stack.push(c+"");
-			}
-			else 
-				stack.push(s);
+			stack.push(c+"");
 		}
-		return Integer.parseInt(stack.peek());   
+		else 
+			stack.push(s);
+	}
+	return Integer.parseInt(stack.peek());   
     }
 
-		public boolean isOperand(String s)
-	{
-		return s.equals("+") || s.equals("-") || s.equals("*") || s.equals("/");
-	}
+    public boolean isOperand(String s)
+    {
+	return s.equals("+") || s.equals("-") || s.equals("*") || s.equals("/");
+    }
 }
